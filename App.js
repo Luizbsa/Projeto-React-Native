@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, StatusBar, ScrollView, Button, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, StatusBar, ScrollView, Button, TouchableOpacity, Row} from 'react-native';
 import { NavigationContainer,  } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -12,7 +12,7 @@ const animes = [
    {nome:"One Piece", data: "1999", genero: "Ação", 
    sinopse: "As aventuras de Monkey D. Luffy e seus amigos, afim de encontrar o maior e mais grandioso tesouro deixado pela pirata Gol D Roger. O nome do tesouro é One Piece e quem encontrá-lo, se tornará o Rei dos Piratas. "},
    {nome:"Boku no Hero", data: "2016", genero: "Aventura", 
-   sinopse: "Midoriya Izukué um estudante que, diferente da maioria, nasceu sem super poderes. Com isso, o jovem vive com uma grande frustração por saber que nunca terá a individualidade especial para que possa se aproximar de seu grande ídolo, All Might, um herói conhecido por ser o símbolo da paz."},
+   sinopse: "Midoriya Izuku é um estudante que, diferente da maioria, nasceu sem super poderes. Com isso, o jovem vive com uma grande frustração por saber que nunca terá a individualidade especial para que possa se aproximar de seu grande ídolo, All Might, um herói conhecido por ser o símbolo da paz."},
    {nome:"Sword Art Online", data: "2011", genero: "Ficção Cientifica", 
    sinopse: "Em um futuro distante, um grupo de amigos usa um equipamento chamado Never Gear, um capacete que estimula os cinco sentidos do usuário, para conseguir entrar em um jogo de MMORPG."},
    {nome:"Dragon Ball", data: "1999", genero: "Porrada", 
@@ -80,7 +80,39 @@ function DetalhesAnime({ navigation, route }){
       <Text style={{fontSize: 17, paddingTop: 30,}}>Genero: {Anime.genero}</Text>
       <Text style={{fontSize: 17, paddingTop: 30,}}>Data de lançamento: {Anime.data}</Text>
       
+     
+      <ExcluirAnime style={{paddingTop: 10}} navigation={navigation}></ExcluirAnime>
+      <AlterarAnime></AlterarAnime>
+     
       </View>
+  )
+}
+
+function AlterarAnimeTela(){
+  <TextInput
+  style={styles.input}
+  onChangeText={onChangeText}
+  value={text}
+/>
+}
+
+function AlterarAnime({navigation }){
+
+  return(
+  <Button onPress={() => navigation.navigate('animeLista') }
+  title="Alterar"
+  ></Button>
+
+  )
+}
+
+function ExcluirAnime({navigation }){
+
+  return(
+  <Button onPress={() => navigation.navigate('animeLista') }
+  title="Deletar"
+  ></Button>
+
   )
 }
 
